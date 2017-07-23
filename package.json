@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --display-error-details --config config/webpack.js",
-    "start": "webpack --display-error-details --config config/webpack.js && node index.js",
+    "heroku-postbuild": "webpack --display-error-details --config config/webpack.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
