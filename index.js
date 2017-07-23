@@ -1,7 +1,7 @@
 const
   express = require('express'),
   app = express(),
-  const port = process.env.PORT || 5000;
+  port = process.env.PORT || 5000;
 
 app.use(express.static('public'));
 
@@ -10,5 +10,5 @@ app.get('/test', function (req, res) {
 })
 
 app.listen(port, function () {
-  console.log('Example app listening on port 80!')
+  console.log(`Example app listening on port ${port}!`)
 })
