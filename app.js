@@ -1,6 +1,7 @@
-var app = require('http').createServer(handler)
-var io = require('socket.io')(app);
-var fs = require('fs');
+const 
+  app = require('http').createServer(handler),
+  io = require('socket.io')(app),
+  fs = require('fs');
 
 app.listen(80);
 
