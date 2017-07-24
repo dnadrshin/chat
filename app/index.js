@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import io from 'socket.io-client'
+import socket from 'socket.io-client'
 
 const
     handleClick = function() {
