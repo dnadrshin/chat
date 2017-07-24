@@ -12,7 +12,7 @@ const
         <button click={handleClick()}></button>s
     </div>
 
-class App extends Component {
+class App extends React.Component {
   state = { data: {} }
 
   componentDidMount() {    
