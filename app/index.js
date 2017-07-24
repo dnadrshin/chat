@@ -7,11 +7,6 @@ const
         console.log('click')
     }
 
-    App = () => <div>
-        <h2>React test</h2>
-        <button click={handleClick()}></button>s
-    </div>
-
 class App extends React.Component {
   state = { data: {} }
 
@@ -29,7 +24,7 @@ class App extends React.Component {
     return (
         <div>
             <h2>React test</h2>
-            <button click={this.sendMessage()}></button>
+            <button onClick={this.sendMessage}></button>
         </div>
     )
   }
