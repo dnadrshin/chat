@@ -1,7 +1,7 @@
 const
   express = require('express'),
   app = express(),
-  socketHelper = require('./socket'),
+  socketHelper = require('./server/socket'),
   port = process.env.PORT || 8080;
 
 socketHelper(app);

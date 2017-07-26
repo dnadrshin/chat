@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 import io from 'socket.io-client'
+import Messages from './Messages'
+import reducer from './reducer'
 
 const
   socket = io.connect('http://localhost:5000');
+
+let
+    store = createStore(reducer);
 
 class App extends React.Component {
   state = { data: {} }
@@ -23,7 +30,10 @@ class App extends React.Component {
   render () {
     return (
         <div>
-            <h2>React test</h2>
+            <h2>Chat</h2>
+            <div>
+                <Messages messages={this.props.messages}/>
+            </div>
             <button onClick={this.sendMessage('some message')}>
               Click
             </button>
@@ -32,4 +42,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App/>, document.querySelector('#app'));
+ReactDOM.render(<Provider store={store}><App/></Provider>, document.querySelector('#app'));

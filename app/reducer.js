@@ -1,0 +1,1 @@
+export default (store = {messages: "dfsdfasdfasdf"}, action) => store
