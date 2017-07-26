@@ -1,14 +1,19 @@
 const path = require('path');
 const webpack = require('webpack');
+
 module.exports = {
   context: path.resolve(__dirname, '..'),
+
   entry: {
     app: './app/index',
   },
+
   output: {
     path: path.resolve(__dirname, '../public/build'),
     filename: '[name].bundle.js',
-  },    module: {
+  },
+
+  module: {
         loaders: [
             {
                 test: /\.jsx?$/,

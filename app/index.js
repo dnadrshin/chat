@@ -1,30 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import socket from 'socket.io-client'
+import io from 'socket.io-client'
 
 const
-    handleClick = function() {
-        console.log('click')
-    }
+  socket = io.connect('http://localhost:5000');
 
 class App extends React.Component {
   state = { data: {} }
 
   componentDidMount() {    
     socket.on(`server:event`, data => {
+      console.log(data)
       this.setState({ data })
     })
   }
 
-  sendMessage = message => {
-    socket.emit(`client:sendMessage`, message)
+  sendMessage(message) {
+    return () => {console.log('emit');
+    socket.emit(`client:sendMessage`, message)}
   }
 
   render () {
     return (
         <div>
             <h2>React test</h2>
-            <button onClick={this.sendMessage}></button>
+            <button onClick={this.sendMessage('some message')}>
+              Click
+            </button>
         </div>
     )
   }
