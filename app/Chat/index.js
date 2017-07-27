@@ -1,25 +1,18 @@
 import React from 'react';
-import io from 'socket.io-client'
-import Messages from './Messages'
-import UserName from './UserName'
+import Messages from './Messages';
+import UserName from './UserName';
 import {connect} from 'react-redux';
-
-let
-  socket = io.connect('http://localhost:5000')
+import socketHelper from './socket'
 
 class Chat extends React.Component {
   state = { data: {} }
 
-  componentDidMount() {    
-    socket.on(`server:event`, data => {
-      console.log(data)
-      this.setState({ data })
-    })
+  componentDidMount() {
+      this.props.createSocket()
   }
 
-  sendMessage(message) {
-    return () => {console.log('emit');
-    socket.emit(`client:sendMessage`, message)}
+  sendMessage(message) {;
+    this.props.sendMessage(message);
   }
 
   render () {
@@ -27,9 +20,7 @@ class Chat extends React.Component {
         <div>
             <h2>Chat</h2>
             <UserName />
-            <div>
-                <Messages/>
-            </div>
+            <Messages />
             <input />
             <button onClick={this.sendMessage('some message')}>Send message</button>
         </div>
@@ -37,4 +28,11 @@ class Chat extends React.Component {
   }
 }
 
-export default connect()(Chat)
+export default connect(
+    null,
+
+    dispatch => ({
+        createSocket: () => dispatch(socketHelper.createSocket()),
+        sendMessage: message => dispatch(socketHelper.sendMessage(message))
+    })
+)(Chat)
