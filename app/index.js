@@ -7,15 +7,14 @@ import { createLogger } from 'redux-logger'
 import Auth from './Auth'
 import Chat from './Chat'
 import reducer from './reducer'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
-const logger = createLogger({
-  // ...options
-});
+const logger = createLogger({});
 
 let
     store = createStore(reducer, applyMiddleware(thunk, logger));
 
 const
-  App = props => <div><Auth /><Chat /></div>;
+  App = props => <Provider store={store}><div><Auth /><Chat /></div></Provider>;
 
 ReactDOM.render(<Provider store={store}><App/></Provider>, document.querySelector('#app'));
