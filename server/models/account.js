@@ -11,7 +11,7 @@ var Account = new Schema({
 });
 
 Account.plugin(passportLocalMongoose, {
-    limitAttempts: true
+    limitAttempts: true,
 });
 
 module.exports = mongoose.model('Account', Account);
