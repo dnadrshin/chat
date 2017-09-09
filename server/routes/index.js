@@ -19,7 +19,6 @@ router.get('/restricted', function(req, res) {
     res.render('restricted', {});
 });
 
-
 router.post('/register', function(req, res, next) {
     Account.register(new Account({username: req.body.username, created_at: new Date()}), req.body.password, function(err) {
         if (err) {
