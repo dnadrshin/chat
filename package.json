@@ -8,7 +8,7 @@
     "go": "webpack --display-error-details --config config/webpack.js && node index.js",
     "heroku-postbuild": "webpack --display-error-details --config config/webpack.js",
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --env=jsdom"
   },
   "author": "",
   "license": "ISC",
