@@ -8,7 +8,6 @@ const
     bodyParser = require('body-parser'),
     session = require('cookie-session'),
     cookieParser = require('cookie-parser'),
-
     middlewares = require('./middleware');
 
 // view engine setup

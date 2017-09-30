@@ -11,25 +11,28 @@ router.get('/admin', function(req, res) {
     res.render('index', {user: req.user});
 });
 
-router.get('/register', function(req, res) {
-    res.render('register', {});
-});
-
 router.get('/restricted', function(req, res) {
     res.render('restricted', {});
 });
 
+router.get('/register', function(req, res) {
+    res.render('register', {});
+});
+
 router.post('/register', function(req, res, next) {
-    Account.register(new Account({username: req.body.username, created_at: new Date()}), req.body.password, function(err) {
-        if (err) {
-        console.log('error while user register!', err);
-        return next(err);
-    }
+    Account.register(
+        new Account({username: req.body.username, created_at: new Date()}),
+        req.body.password, 
+        
+        function(err) {
+            if (err) {
+                console.log('error while user register!', err);
+                return next(err);
+            }
 
-    console.log('user registered!');
-
-    res.redirect('/');
-  });
+            console.log('user registered!');
+            res.redirect('/');
+        });
 });
 
 router.get('/login', function(req, res) {
