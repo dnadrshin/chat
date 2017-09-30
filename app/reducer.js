@@ -1,11 +1,11 @@
-import {combineReducers} from 'redux'
-import authReducer from './Auth/reducer'
-import chatReducer from './Chat/reducer'
+import { combineReducers } from 'redux';
+import authReducer from './Auth/reducer';
+import chatReducer from './Chat/reducer';
 
-let
-    reducers = {
-        auth: authReducer,
-        chat: chatReducer
-    }
+const
+  reducers = {
+    auth: authReducer,
+    chat: chatReducer,
+  };
 
-export default combineReducers(reducers)
+export default combineReducers(reducers);

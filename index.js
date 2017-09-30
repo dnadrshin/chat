@@ -1,14 +1,13 @@
 const
-    app = require('./server/app'),
-    mongoose = require('mongoose'),
-    initSocket = require('./server/socket'),
-    initPassport = require('./server/passport'),
-    settings = require('./server/settings'),
-    middlewares = require('./server/middleware');
+  app = require('./server/app'),
+  mongoose = require('mongoose'),
+  // initSocket = require('./server/socket'),
+  initPassport = require('./server/passport'),
+  settings = require('./server/settings');
 
 initPassport(app);
 
-//initSocket(app);
+// initSocket(app);
 
 // Connect mongoose
 mongoose.connect(settings.mongodbUrl, err => console.log(err ? 'Could not connect to mongodb!' : 'MongoDB connection established'));

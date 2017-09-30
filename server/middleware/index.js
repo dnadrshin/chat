@@ -1,6 +1,6 @@
 const
-    mustAuthenticated = require('./must-authenticated');
+  mustAuthenticated = require('./must-authenticated');
 
 module.exports = {
-    mustAuthenticated
-}
+  mustAuthenticated,
+};

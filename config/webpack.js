@@ -14,15 +14,15 @@ module.exports = {
   },
 
   module: {
-        loaders: [
-            {
-                test: /\.jsx?$/,
-                exclude: [/node_modules/],
-                loader: "babel-loader",
-                query: {
-                    presets: ['es2015', 'react', 'stage-0', 'stage-1']
-                }
-            }
-        ]
-    },
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: [/node_modules/],
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react', 'stage-0', 'stage-1'],
+        },
+      },
+    ],
+  },
 };
